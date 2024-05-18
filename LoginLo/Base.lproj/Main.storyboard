@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="PBk-SE-gvC">
             <objects>
-                <viewController id="6TQ-vy-dhe" sceneMemberID="viewController">
+                <viewController id="6TQ-vy-dhe" customClass="ViewController" customModule="LoginLo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9pi-Ji-3pD">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +105,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O29-2T-6lg">
                                         <rect key="frame" x="0.0" y="484.00000000000006" width="333" height="41.333333333333314"/>
-                                        <color key="backgroundColor" red="0.19140141660000001" green="0.94700386599999997" blue="0.58738115390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.058823529411764705" green="0.81960784313725488" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="O29-2T-6lg" secondAttribute="height" multiplier="8:1" id="9GF-Pj-JPp"/>
                                         </constraints>
@@ -114,6 +114,14 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Login">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                         </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonAction:" destination="6TQ-vy-dhe" eventType="touchUpInside" id="CDo-Dx-u0S"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -133,6 +141,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Sign up here.">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signUpButtonAction:" destination="6TQ-vy-dhe" eventType="touchUpInside" id="q43-Mz-K8p"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -159,6 +170,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y0v-Te-Fog"/>
+                    <connections>
+                        <outlet property="emailViewLine" destination="IWG-qE-Yi6" id="SwB-hX-6jp"/>
+                        <outlet property="loginButton" destination="O29-2T-6lg" id="wLP-oy-BBx"/>
+                        <outlet property="noAccountLabel" destination="B5W-pV-rSF" id="Jj5-Qv-tIe"/>
+                        <outlet property="passwordViewLine" destination="cXj-5z-gfE" id="pXd-x7-Hb3"/>
+                        <outlet property="signUpButton" destination="49n-eX-eIS" id="MJa-se-evH"/>
+                        <outlet property="textFieldEmail" destination="ShX-d6-6ZF" id="fk6-jn-rIs"/>
+                        <outlet property="textFieldPassword" destination="Aby-4r-g8Z" id="s1k-mj-9km"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QC-hz-0k5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
