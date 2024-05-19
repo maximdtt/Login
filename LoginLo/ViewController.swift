@@ -23,8 +23,13 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    //private var activeColour = UIColor(named: "myFirst") ?? UIColor.green
-
+    private let activeColour = UIColor(named: "myFirst") ?? UIColor.green
+    private var email = ""
+    private var password = ""
+    
+    private let mockEmail = "abc@gmail.com"
+    private let mockPasword = "123456"
+    
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -33,11 +38,27 @@ class ViewController: UIViewController {
         configureLoginButton()
         textFieldEmail.delegate = self
        textFieldPassword.delegate = self
+        textFieldEmail.becomeFirstResponder()
     }
     
     // MARK: - Actions
     @IBAction func loginButtonAction(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToHomePage", sender: sender)
+        textFieldPassword.resignFirstResponder()
+        textFieldEmail.resignFirstResponder()
+        
+        if email.isEmpty {
+            makeErrorField(textField: textFieldEmail)
+        }
+        
+        if password.isEmpty {
+            makeErrorField(textField: textFieldPassword)
+        }
+        
+        if email == mockEmail, password == mockPasword {
+            performSegue(withIdentifier: "goToHomePage", sender: sender)
+        } else {
+            // TODO: show error
+        }
     }
     @IBAction func signUpButtonAction(_ sender: UIButton) {
         print("Signed up pressed")
@@ -48,7 +69,7 @@ class ViewController: UIViewController {
     // MARK: - Methods
     
     func configureLoginButton() {
-        loginButton.layer.shadowColor = (UIColor.init(named: "myFirst") ?? UIColor.green).cgColor
+        loginButton.layer.shadowColor = activeColour.cgColor
         loginButton.layer.shadowOpacity = 1
         loginButton.layer.shadowRadius = 8
         loginButton.layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -59,13 +80,28 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        guard let text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+        !text.isEmpty else { return }
         
         switch textField {
         case textFieldEmail:
             let isValidEmail = check(email: text)
+            if isValidEmail {
+                email = text
+                emailImage.tintColor = activeColour
+                emailViewLine.backgroundColor = activeColour
+            } else {
+                makeErrorField(textField: textField)
+            }
         case textFieldPassword:
-            let isValidPassword = check(email: text)
+            let isValidPassword = check(password: text)
+            if isValidPassword {
+                password = text
+                lockImage.tintColor = activeColour
+                passwordViewLine.backgroundColor = activeColour
+            } else {
+                makeErrorField(textField: textField)
+            }
         default:
             print("unknown")
         }
@@ -77,6 +113,19 @@ extension ViewController: UITextFieldDelegate {
     
     private func check(password: String) -> Bool {
         password.count >= 4
+    }
+    
+    private func makeErrorField(textField: UITextField) {
+        switch textField {
+        case textFieldEmail:
+            emailImage.tintColor = UIColor.red
+            emailViewLine.backgroundColor = UIColor.red
+        case textFieldPassword:
+            lockImage.tintColor = UIColor.red
+            passwordViewLine.backgroundColor = UIColor.red
+        default:
+            print("unknown")
+        }
     }
 }
 
