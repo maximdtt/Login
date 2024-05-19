@@ -105,7 +105,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O29-2T-6lg">
                                         <rect key="frame" x="0.0" y="484.00000000000006" width="333" height="41.333333333333314"/>
-                                        <color key="backgroundColor" red="0.058823529411764705" green="0.81960784313725488" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.61568627450980395" green="0.87450980392156863" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="O29-2T-6lg" secondAttribute="height" multiplier="8:1" id="9GF-Pj-JPp"/>
                                         </constraints>
@@ -136,7 +136,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49n-eX-eIS">
                                         <rect key="frame" x="174" y="0.0" width="124.33333333333331" height="34.333333333333336"/>
-                                        <color key="tintColor" red="0.19140141660000001" green="0.94700386599999997" blue="0.58738115390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.61568627450000002" green="0.87450980389999999" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign up here.">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
@@ -171,13 +171,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="y0v-Te-Fog"/>
                     <connections>
+                        <outlet property="emailImage" destination="72o-Zo-bgf" id="gtf-Tz-SuB"/>
                         <outlet property="emailViewLine" destination="IWG-qE-Yi6" id="SwB-hX-6jp"/>
+                        <outlet property="lockImage" destination="1xc-OI-snu" id="0qd-Wm-TaO"/>
                         <outlet property="loginButton" destination="O29-2T-6lg" id="wLP-oy-BBx"/>
                         <outlet property="noAccountLabel" destination="B5W-pV-rSF" id="Jj5-Qv-tIe"/>
                         <outlet property="passwordViewLine" destination="cXj-5z-gfE" id="pXd-x7-Hb3"/>
                         <outlet property="signUpButton" destination="49n-eX-eIS" id="MJa-se-evH"/>
                         <outlet property="textFieldEmail" destination="ShX-d6-6ZF" id="fk6-jn-rIs"/>
                         <outlet property="textFieldPassword" destination="Aby-4r-g8Z" id="s1k-mj-9km"/>
+                        <segue destination="yWe-Hr-j9X" kind="show" identifier="goToHomePage" id="5DR-ic-k94"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QC-hz-0k5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -194,10 +197,11 @@
                         <viewLayoutGuide key="safeArea" id="5GA-M2-raj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="i1O-ic-zP2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qz-P6-oGt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753" y="4"/>
+            <point key="canvasLocation" x="815" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WDq-5S-XO9">
