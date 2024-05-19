@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         configureLoginButton()
         textFieldEmail.delegate = self
-        textFieldPassword.delegate = self
+       textFieldPassword.delegate = self
     }
     
     // MARK: - Actions
