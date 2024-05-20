@@ -57,7 +57,10 @@ class ViewController: UIViewController {
         if email == mockEmail, password == mockPasword {
             performSegue(withIdentifier: "goToHomePage", sender: sender)
         } else {
-            // TODO: show error
+            let alert = UIAlertController(title: "Error".localized, message: "Wrong email or password".localized, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK".localized, style: .default)
+            alert.addAction(action)
+            present(alert, animated: true)
         }
     }
     @IBAction func signUpButtonAction(_ sender: UIButton) {
@@ -71,8 +74,8 @@ class ViewController: UIViewController {
     func configureLoginButton() {
         loginButton.layer.shadowColor = activeColour.cgColor
         loginButton.layer.shadowOpacity = 1
-        loginButton.layer.shadowRadius = 8
-        loginButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        loginButton.layer.shadowRadius = 6
+        loginButton.layer.shadowOffset = CGSize(width: 2, height: 4)
     }
 
 
