@@ -24,8 +24,19 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     private let activeColour = UIColor(named: "myFirst") ?? UIColor.green
-    private var email = ""
-    private var password = ""
+    
+    private var email = "" {
+        didSet {
+            loginButton.isUserInteractionEnabled = !(email.isEmpty || password.isEmpty)
+            loginButton.backgroundColor = !(email.isEmpty || password.isEmpty) ? activeColour : .systemGray5
+        }
+    }
+    private var password = "" {
+        didSet {
+            loginButton.isUserInteractionEnabled = !(email.isEmpty || password.isEmpty)
+            loginButton.backgroundColor = !(email.isEmpty || password.isEmpty) ? activeColour : .systemGray5
+        }
+    }
     
     private let mockEmail = "abc@gmail.com"
     private let mockPasword = "123456"
@@ -94,6 +105,7 @@ extension ViewController: UITextFieldDelegate {
                 emailImage.tintColor = activeColour
                 emailViewLine.backgroundColor = activeColour
             } else {
+                email = ""
                 makeErrorField(textField: textField)
             }
         case textFieldPassword:
@@ -103,6 +115,7 @@ extension ViewController: UITextFieldDelegate {
                 lockImage.tintColor = activeColour
                 passwordViewLine.backgroundColor = activeColour
             } else {
+                password = ""
                 makeErrorField(textField: textField)
             }
         default:
